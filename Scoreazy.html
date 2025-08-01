@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scoreazy Elite Mentorship | Transform Your Academic Journey</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ===== Ultra-Premium Variables ===== */
+        :root {
+            --primary: #2EC4B6;
+            --primary-light: #6FFFE9;
+            --primary-dark: #1A7F72;
+            --secondary: #FF9F1C;
+            --accent: #E71D36;
+            --neon: #00F5FF;
+            --light: #F8F9FA;
+            --dark: #0F172A;
+            --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            --gradient-secondary: linear-gradient(135deg, var(--secondary) 0%, #FFBF69 100%);
+            --gradient-accent: linear-gradient(135deg, var(--accent) 0%, #FF3864 100%);
+            --glass: rgba(255, 255, 255, 0.3);
+            --shadow: 0 25px 50px -12px rgba(46, 196, 182, 0.25);
+            --neon-glow: 0 0 15px rgba(0, 245, 255, 0.7);
+        }
+
+        /* ===== Base Styles ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Manrope', sans-serif;
+            color: var(--dark);
+            background-color: var(--light);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            line-height: 1.1;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        section {
+            padding: 120px 0;
+            position: relative;
+        }
+
+        /* ===== Cinematic Background ===== */
+        .bg-cinematic {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at 70% 30%, rgba(46, 196, 182, 0.1) 0%, transparent 60%),
+                        radial-gradient(ellipse at 30% 70%, rgba(255, 159, 28, 0.1) 0%, transparent 60%);
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 1.5s ease;
+        }
+
+        section:hover .bg-cinematic {
+            opacity: 1;
+        }
+
+        /* ===== Ultra-Premium Buttons ===== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 18px 42px;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            border: none;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            transform-style: preserve-3d;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-primary);
+            z-index: -2;
+        }
+
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-secondary);
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.6s ease;
+        }
+
+        .btn-primary {
+            color: white;
+            transform: translateZ(20px);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-8px) translateZ(20px);
+            box-shadow: 0 30px 60px rgba(46, 196, 182, 0.4);
+        }
+
+        .btn-primary:hover::after {
+            opacity: 1;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            box-shadow: none;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+            box-shadow: var(--shadow);
+        }
+
+        /* ===== Glass Morphism 2.0 ===== */
+        .glass-card {
+            background: var(--glass);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: var(--shadow);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            overflow: hidden;
+            transform-style: preserve-3d;
+        }
+
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.6s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-10px) translateZ(20px);
+            box-shadow: 0 40px 80px rgba(46, 196, 182, 0.3);
+        }
+
+        .glass-card:hover::before {
+            opacity: 1;
+        }
+
+        /* ===== 3D Parallax Effect ===== */
+        .parallax-card {
+            transform-style: preserve-3d;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .parallax-card:hover {
+            transform: translateZ(20px);
+        }
+
+        /* ===== Neon Accents ===== */
+        .neon-accent {
+            position: relative;
+        }
+
+        .neon-accent::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--neon);
+            box-shadow: var(--neon-glow);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .neon-accent:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        /* ===== Floating Animation ===== */
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateZ(0); }
+            50% { transform: translateY(-20px) translateZ(10px); }
+        }
+
+        .floating {
+            animation: float 8s ease-in-out infinite;
+        }
+
+        /* ===== Hero Section ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 100px;
+            background: linear-gradient(135deg, #F8F9FA 0%, #E6F9F7 100%);
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero-image {
+            position: relative;
+            z-index: 5;
+            perspective: 1000px;
+        }
+
+        .hero-image .glass-card {
+            transform: rotateY(-15deg) rotateX(5deg);
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .hero-image:hover .glass-card {
+            transform: rotateY(-5deg) rotateX(2deg);
+        }
+
+        /* ===== Features Grid ===== */
+        .feature-card {
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-15px) translateZ(20px);
+            box-shadow: 0 40px 80px rgba(46, 196, 182, 0.3);
+        }
+
+        /* ===== Mentor Cards ===== */
+        .mentor-card {
+            perspective: 1000px;
+            transform-style: preserve-3d;
+        }
+
+        .mentor-card-inner {
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            transform-style: preserve-3d;
+        }
+
+        .mentor-card:hover .mentor-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .mentor-card-front, .mentor-card-back {
+            backface-visibility: hidden;
+            border-radius: 24px;
+            overflow: hidden;
+        }
+
+        .mentor-card-back {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transform: rotateY(180deg);
+            background: var(--gradient-primary);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 30px;
+        }
+
+        /* ===== Pricing Cards ===== */
+        .pricing-card {
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-15px) translateZ(20px);
+            box-shadow: 0 50px 100px rgba(46, 196, 182, 0.3);
+        }
+
+        /* ===== Footer ===== */
+        .footer-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .footer-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background: var(--neon);
+            box-shadow: var(--neon-glow);
+            transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .footer-link:hover::after {
+            width: 100%;
+        }
+
+        /* ===== Responsive Styles ===== */
+        @media (max-width: 1200px) {
+            .container {
+                max-width: 1000px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            section {
+                padding: 100px 0;
+            }
+            
+            .hero-content {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 80px 0;
+            }
+            
+            h1 {
+                font-size: 2.8rem;
+            }
+            
+            h2 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            section {
+                padding: 60px 0;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .btn {
+                padding: 16px 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md shadow-sm">
+        <div class="container py-5">
+            <div class="flex justify-between items-center">
+                <a href="#" class="text-3xl font-bold">
+                    <span style="background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Scoreazy</span>
+                </a>
+                
+                <div class="hidden lg:flex items-center space-x-12">
+                    <a href="#features" class="font-medium text-lg neon-accent">Features</a>
+                    <a href="#how-it-works" class="font-medium text-lg neon-accent">Methodology</a>
+                    <a href="#mentors" class="font-medium text-lg neon-accent">Mentors</a>
+                    <a href="#pricing" class="font-medium text-lg neon-accent">Pricing</a>
+                    <a href="#cta" class="btn btn-primary">Get Started</a>
+                </div>
+                
+                <button class="lg:hidden text-2xl">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="bg-cinematic"></div>
+        <div class="container mt-16">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 mb-16 lg:mb-0">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight">
+                        <span style="background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Elite</span> Academic Mentorship
+                    </h1>
+                    <p class="text-xl md:text-2xl mb-10 text-gray-700 max-w-2xl">
+                        Revolutionize your learning with AI-powered 1-on-1 mentorship from certified education psychologists.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-6">
+                        <a href="#cta" class="btn btn-primary">
+                            <span class="mr-2">Book Consultation</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a href="#how-it-works" class="btn btn-outline">
+                            <span class="mr-2 grey-700">Learn More</span>
+                            <i class="fas fa-play"></i>
+                        </a>
+                    </div>
+                    <div class="mt-14 flex items-center space-x-6">
+                        <div class="flex -space-x-4">
+                            <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Student" class="w-14 h-14 rounded-full border-3 border-white object-cover shadow-lg">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Student" class="w-14 h-14 rounded-full border-3 border-white object-cover shadow-lg">
+                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Student" class="w-14 h-14 rounded-full border-3 border-white object-cover shadow-lg">
+                        </div>
+                        <div>
+                            <div class="flex text-yellow-400 mb-1">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="text-sm font-medium text-gray-600">5,000+ Transformed Students</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-1/2 relative">
+                    <div class="hero-image">
+                        <div class="glass-card p-3 rounded-3xl">
+                            <img src="https://images.unsplash.com/photo-1580894732444-8ecded7900cd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Student receiving mentorship" class="rounded-2xl w-full h-auto">
+                        </div>
+                    </div>
+                    <div class="absolute -bottom-20 -left-20 w-48 h-48 bg-primary rounded-full filter blur-3xl opacity-20 floating"></div>
+                    <div class="absolute -top-20 -right-20 w-56 h-56 bg-secondary rounded-full filter blur-3xl opacity-20 floating" style="animation-delay: 2s;"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="relative overflow-hidden">
+        <div class="bg-cinematic"></div>
+        <div class="container">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    <span style="background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Why</span> Scoreazy Elite?
+                </h2>
+                <p class="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto">
+                    Our cutting-edge approach combines cognitive science with AI-driven personalization for unmatched results.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="feature-card glass-card p-10 rounded-3xl parallax-card">
+                    <div class="w-20 h-20 rounded-2xl flex items-center justify-center mb-8" style="background: var(--gradient-primary);">
+                        <i class="fas fa-brain text-3xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-5">Neuroscience-Based</h3>
+                    <p class="text-gray-600">
+                        Techniques proven by neuroscience to enhance memory retention and understanding by 63%.
+                    </p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="feature-card glass-card p-10 rounded-3xl parallax-card">
+                    <div class="w-20 h-20 rounded-2xl flex items-center justify-center mb-8" style="background: var(--gradient-secondary);">
+                        <i class="fas fa-chart-line text-3xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-5">AI Performance Tracking</h3>
+                    <p class="text-gray-600">
+                        Real-time analytics with personalized feedback loops to maximize progress.
+                    </p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="feature-card glass-card p-10 rounded-3xl parallax-card">
+                    <div class="w-20 h-20 rounded-2xl flex items-center justify-center mb-8" style="background: var(--gradient-primary);">
+                        <i class="fas fa-user-graduate text-3xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-5">Boutique Mentorship</h3>
+                    <p class="text-gray-600">
+                        Exclusive 1-on-1 sessions with hand-picked education psychologists.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how-it-works" class="relative overflow-hidden bg-gradient-to-b from-white to-gray-50">
+        <div class="bg-cinematic"></div>
+        <div class="container">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    The <span style="background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Elite</span> Methodology
+                </h2>
+                <p class="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto">
+                    Our proven 4-phase system delivers transformational academic results
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Step 1 -->
+                <div class="relative group">
+                    <div class="glass-card p-10 rounded-3xl h-full parallax-card">
+                        <div class="absolute -top-2 -left-2 w-16 h-16 rounded-2xl flex items-center justify-center text-white font-bold text-2xl group-hover:scale-110 transition-transform duration-500" style="background: var(--gradient-primary);">
+                            1
+                        </div>
+                        <h3 class="text-2xl font-bold mb-5 mt-6">Discovery Session</h3>
+                        <p class="text-gray-600">
+                            Comprehensive consultation to map your academic DNA and goals.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="relative group">
+                    <div class="glass-card p-10 rounded-3xl h-full parallax-card">
+                        <div class="absolute -top-2 -left-2 w-16 h-16 rounded-2xl flex items-center justify-center text-white font-bold text-2xl group-hover:scale-110 transition-transform duration-500" style="background: var(--gradient-primary);">
+                            2
+                        </div>
+                        <h3 class="text-2xl font-bold mb-5 mt-6">Cognitive Assessment</h3>
+                        <p class="text-gray-600">
+                            Advanced evaluation of your unique learning patterns and strengths.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="relative group">
+                    <div class="glass-card p-10 rounded-3xl h-full parallax-card">
+                        <div class="absolute -top-2 -left-2 w-16 h-16 rounded-2xl flex items-center justify-center text-white font-bold text-2xl group-hover:scale-110 transition-transform duration-500" style="background: var(--gradient-primary);">
+                            3
+                        </div>
+                        <h3 class="text-2xl font-bold mb-5 mt-6">Tailored Blueprint</h3>
+                        <p class="text-gray-600">
+                            Custom learning plan with neuroscience-backed strategies.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Step 4 -->
+                <div class="relative group">
+                    <div class="glass-card p-10 rounded-3xl h-full parallax-card">
+                        <div class="absolute -top-2 -left-2 w-16 h-16 rounded-2xl flex items-center justify-center text-white font-bold text-2xl group-hover:scale-110 transition-transform duration-500" style="background: var(--gradient-primary);">
+                            4
+                        </div>
+                        <h3 class="text-2xl font-bold mb-5 mt-6">Transformational Coaching</h3>
+                        <p class="text-gray-600">
+                            Weekly elite mentorship sessions with progress optimization.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mentors Section -->
+    <section id="mentors" class="relative overflow-hidden">
+        <div class="bg-cinematic"></div>
+        <div class="container">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    Our <span style="background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Elite</span> Mentors
+                </h2>
+                <p class="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto">
+                    World-class education psychologists with proven transformational results
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Mentor 1 -->
+                <div class="mentor-card h-full">
+                    <div class="mentor-card-inner h-full">
+                        <div class="mentor-card-front glass-card h-full rounded-3xl overflow-hidden parallax-card">
+                            <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Dr. Ananya Sharma" class="w-full h-80 object-cover">
+                            <div class="p-8">
+                                <h3 class="text-2xl font-bold">Dr. Ananya Sharma</h3>
+                                <p class="text-primary font-medium mt-2">Cognitive Neuroscience Expert</p>
+                            </div>
+                        </div>
+                        <div class="mentor-card-back rounded-3xl p-8">
+                            <h3 class="text-2xl font-bold text-white">Dr. Ananya Sharma</h3>
+                            <p class="text-white/80 mt-2 mb-6">PhD in Cognitive Neuroscience</p>
+                            <p class="text-white mb-8">Specializes in anxiety reduction and STEM learning optimization with 12+ years experience</p>
+                            <div class="flex space-x-3">
+                                <span class="px-4 py-2 bg-white/20 rounded-full text-sm font-medium text-white">97% Success</span>
+                                <span class="px-4 py-2 bg-white/20 rounded-full text-sm font-medium text-white">Harvard</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mentor 2 -->
+                <div class="mentor-card h-full">
+                    <div class="mentor-card-inner h-full">
+                        <div class="mentor-card-front glass-card h-full rounded-3xl overflow-hidden parallax-card">
+                            <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Rahul Kapoor" class="w-full h-80 object-cover">
+                            <div class="p-8">
+                                <h3 class="text-2xl font-bold">Rahul Kapoor</h3>
+                                <p class="text-primary font-medium mt-2">Learning Performance Specialist</p>
+                            </div>
+                        </div>
+                        <div class="mentor-card-back rounded-3xl p-8">
+                            <h3 class="text-2xl font-bold text-white">Rahul Kapoor</h3>
+                            <p class="text-white/80 mt-2 mb-6">M.Ed in Cognitive Psychology</p>
+                            <p class="text-white mb-8">Expert in habit formation and peak performance strategies</p>
+                            <div class="flex space-x-3">
+                                <span class="px-4 py-2 bg-white/20 rounded-full text-sm font-medium text-white">92% Success</span>
+                                <span class="px-4 py-2 bg-white/20 rounded-full text-sm font-medium text-white">Stanford</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mentor 3 -->
+                <div class="mentor-card h-full">
+                    <div class="mentor-card-inner h-full">
+                        <div class="mentor-card-front glass-card h-full rounded-3xl overflow-hidden parallax-card">
+                            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Neha Patel" class="w-full h-80 object-cover">
+                            <div class="p-8">
+                                <h3 class="text-2xl font-bold">Neha Patel</h3>
+                                <p class="text-primary font-medium mt-2">Neurodiversity Specialist</p>
+                            </div>
+                        </div>
+                        <div class="mentor-card-back rounded-3xl p-8">
+                            <h3 class="text-2xl font-bold text-white">Neha Patel</h3>
+                            <p class="text-white/80 mt-2 mb-6">Board-Certified Educational Therapist</p>
+                            <p class="text-white mb-8">Specializes in ADHD, dyslexia and neurodiverse learning strategies</p>
+                            <div class="flex space-x-3">
+                                <span class="px-4 py-2 bg-white/20 rounded-full text-sm font-medium text-white">89% Success</span>
+                                <span class="px-4 py-2 bg-white/20 rounded-full text-sm font-medium text-white">Oxford</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="relative overflow-hidden bg-gradient-to-b from-gray-50 to-white">
+        <div class="bg-cinematic"></div>
+        <div class="container">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    <span style="background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Elite</span> Membership
+                </h2>
+                <p class="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto">
+                    Select the tier that matches your academic transformation goals
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Starter Plan -->
+                <div class="pricing-card glass-card p-10 rounded-3xl parallax-card">
+                    <h3 class="text-2xl font-bold mb-3">Foundations</h3>
+                    <p class="text-gray-600 mb-8">For students beginning their transformation</p>
+                    <div class="text-5xl font-bold mb-8">
+                        ₹14,999<span class="text-lg text-gray-500">/month</span>
+                    </div>
+                    <ul class="space-y-4 mb-10">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-primary mt-1 mr-3"></i>
+                            <span>4 elite sessions/month</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-primary mt-1 mr-3"></i>
+                            <span>Comprehensive assessment</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-primary mt-1 mr-3"></i>
+                            <span>Priority email support</span>
+                        </li>
+                        <li class="flex items-start text-gray-400">
+                            <i class="fas fa-times-circle mt-1 mr-3"></i>
+                            <span>No AI analytics</span>
+                        </li>
+                    </ul>
+                    <a href="#cta" class="btn btn-outline w-full">
+                        Begin Journey
+                    </a>
+                </div>
+                
+                <!-- Popular Plan -->
+                <div class="pricing-card glass-card p-10 rounded-3xl border-3 border-primary relative parallax-card">
+                    <div class="popular-tag absolute -top-0 right-2 bg-[#facc15] text-gray-900 px-4 py-1.5 rounded-full text-xs font-bold shadow-md border border-yellow-400 uppercase tracking-wide">
+  Most Popular
+</div>
+
+                    <h3 class="text-2xl font-bold mb-3">Transformational</h3>
+                    <p class="text-gray-600 mb-8">For students committed to excellence</p>
+                    <div class="text-5xl font-bold mb-8">
+                        ₹24,999<span class="text-lg text-gray-500">/month</span>
+                    </div>
+                    <ul class="space-y-4 mb-10">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-primary mt-1 mr-3"></i>
+                            <span>8 elite sessions/month</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-primary mt-1 mr-3"></i>
+                            <span>Advanced cognitive assessment</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-primary mt-1 mr-3"></i>
+                            <span>24/7 VIP support</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-primary mt-1 mr-3"></i>
+                            <span>AI performance analytics</span>
+                        </li>
+                    </ul>
+                    <a href="#cta" class="btn btn-primary w-full">
+                        Transform Now
+                    </a>
+                </div>
+                
+                <!-- Premium Plan -->
+                <div class="pricing-card glass-card p-10 rounded-3xl parallax-card">
+                    <h3 class="text-2xl font-bold mb-3">Elite</h3>
+                    <p class="text-gray-600 mb-8">For maximum academic transformation</p>
+                    <div class="text-5xl font-bold mb-8">
+                        ₹34,999<span class="text-lg text-gray-500">/month</span>
+                    </div>
+                    <ul class="space-y-4 mb-10">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-primary mt-1 mr-3"></i>
+                            <span>12 elite sessions/month</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-primary mt-1 mr-3"></i>
+                            <span>Comprehensive neuro-assessment</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-primary mt-1 mr-3"></i>
+                            <span>Dedicated success manager</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-primary mt-1 mr-3"></i>
+                            <span>Advanced AI analytics suite</span>
+                        </li>
+                    </ul>
+                    <a href="#cta" class="btn btn-outline w-full">
+                        Go Elite
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="cta" class="relative overflow-hidden py-32" style="background: var(--gradient-primary);">
+        <div class="container text-center">
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-8">
+                Ready for Academic Transformation?
+            </h2>
+            <p class="text-xl md:text-2xl text-white/90 mb-12 max-w-4xl mx-auto">
+                Join 5,000+ students who've transformed their academic performance with our elite mentorship program.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-6">
+                <a href="#" class="btn bg-white text-primary px-10 py-5 rounded-full font-bold text-lg shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-105">
+                    <span class="mr-3">Book Free Consultation</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="#" class="btn border-3 border-white text-white px-10 py-5 rounded-full font-bold text-lg hover:bg-white hover:text-primary transition-all duration-500">
+                    <span class="mr-3">Speak to Advisor</span>
+                    <i class="fas fa-phone-alt"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-20">
+        <div class="container">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+                <div>
+                    <a href="#" class="text-3xl font-bold text-white mb-6 inline-block">
+                        <span style="background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Scoreazy</span>
+                    </a>
+                    <p class="mb-8 text-gray-400">
+                        The world's most advanced academic mentorship program combining cognitive science with AI.
+                    </p>
+                    <div class="flex space-x-5">
+                        <a href="#" class="w-12 h-12 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary hover:text-white transition-all duration-300 text-lg">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 rounded-full bg-gray-800 flex items-center justify-center hover:bg-secondary hover:text-white transition-all duration-300 text-lg">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 rounded-full bg-gray-800 flex items-center justify-center hover:bg-pink-600 hover:text-white transition-all duration-300 text-lg">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-700 hover:text-white transition-all duration-300 text-lg">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-white text-lg font-bold mb-6">Navigation</h3>
+                    <ul class="space-y-4">
+                        <li><a href="#" class="footer-link text-gray-400 hover:text-white">Home</a></li>
+                        <li><a href="#features" class="footer-link text-gray-400 hover:text-white">Features</a></li>
+                        <li><a href="#how-it-works" class="footer-link text-gray-400 hover:text-white">Methodology</a></li>
+                        <li><a href="#mentors" class="footer-link text-gray-400 hover:text-white">Mentors</a></li>
+                        <li><a href="#pricing" class="footer-link text-gray-400 hover:text-white">Pricing</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-white text-lg font-bold mb-6">Programs</h3>
+                    <ul class="space-y-4">
+                        <li><a href="#" class="footer-link text-gray-400 hover:text-white">Elite Mentorship</a></li>
+                        <li><a href="#" class="footer-link text-gray-400 hover:text-white">Cognitive Boost</a></li>
+                        <li><a href="#" class="footer-link text-gray-400 hover:text-white">Exam Mastery</a></li>
+                        <li><a href="#" class="footer-link text-gray-400 hover:text-white">Neurodiverse Learning</a></li>
+                        <li><a href="#" class="footer-link text-gray-400 hover:text-white">Parent Coaching</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-white text-lg font-bold mb-6">Contact</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-4 text-primary"></i>
+                            <a href="mailto:elite@scoreazy.com" class="footer-link text-gray-400 hover:text-white">elite@scoreazy.com</a>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt mt-1 mr-4 text-primary"></i>
+                            <a href="tel:+919876543210" class="footer-link text-gray-400 hover:text-white">+91 98765 43210</a>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-4 text-primary"></i>
+                            <span class="text-gray-400">Elite Education Tower, Bangalore</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-500 mb-4 md:mb-0">&copy; 2023 Scoreazy Elite. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="footer-link text-gray-500 hover:text-white">Privacy Policy</a>
+                    <a href="#" class="footer-link text-gray-500 hover:text-white">Terms of Service</a>
+                    <a href="#" class="footer-link text-gray-500 hover:text-white">GDPR</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fadeIn');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.glass-card, .parallax-card').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Mobile menu toggle
+        const menuButton = document.querySelector('.lg\\:hidden');
+        const menu = document.querySelector('.lg\\:flex');
+
+        menuButton.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+            menu.classList.toggle('flex');
+        });
+    </script>
+</body>
+</html>
